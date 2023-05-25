@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 class Textfield extends StatelessWidget {
   const Textfield(
-      {Key? key,
+      {super.key,
       required this.controller,
       this.hinttext,
       required this.maxlines,

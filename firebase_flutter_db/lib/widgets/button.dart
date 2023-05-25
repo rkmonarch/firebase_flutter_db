@@ -10,7 +10,7 @@ class Button extends StatelessWidget {
     this.textcolor = Colors.white,
     this.bordercolor = Colors.white,
     required this.ontap,
-    this.color = const Color(0xff110152),
+    this.color =  Colors.blue,
     this.text = "Tap-me",
   }) : super(key: key);
 
