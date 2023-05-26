@@ -1,4 +1,9 @@
+import 'dart:convert';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_flutter_db/screens/register_screen.dart';
+import 'package:firebase_flutter_db/services/auth_methods.dart';
+import 'package:firebase_flutter_db/widgets/button.dart';
 import 'package:firebase_flutter_db/widgets/resource/app_colors.dart';
 import 'package:firebase_flutter_db/widgets/resource/ui_helper.dart';
 import 'package:firebase_flutter_db/widgets/responsive.dart';
@@ -23,7 +28,16 @@ class LoginScreen extends StatelessWidget {
          ),
       vSpaceMedium(context),
       Textfield(controller: _emailController,lableText: "Email*",maxlines: 1,inputType: TextInputType.emailAddress,width: deviceWidth(context),),
-     
+     Button(ontap: (){
+AuthMethods().logInUser(email: "x22@gmail.com", password: "123456").then((value) {
+lg.wtf(value);
+if (value == 'success') {
+var data =  FirebaseFirestore.instance.collection('users').doc('KpnTIHx7FnMdkJRVUB3TnwnkQT93').get().then((value) {
+  lg.wtf(value.data());
+});
+}
+});
+     }),
      Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
