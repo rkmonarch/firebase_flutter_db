@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_flutter_db/widgets/resource/ui_helper.dart';
 
 import '../models/user_model.dart';
 
@@ -23,18 +24,20 @@ class AuthMethods {
 
         UserModel userModel = UserModel(
           email: email,
-          name: name!,
-          uid: user.user!.uid,
-          username: username!,
+          name: name,
+          uid: user.user?.uid,
+          username: username,
         
         );
 
-        await _firestore.collection('users').doc(user.user!.uid).set(
+        await _firestore.collection('users').doc(user.user?.uid).set(
               userModel.toJson(),
             );
         result = 'success';
       }
     } catch (err) {
+       lg.wtf(err);
+      //  showErrorMessage(message: "xcms");
       result = err.toString();
     }
     return result;

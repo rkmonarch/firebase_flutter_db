@@ -28,11 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
           ElevatedButton(
             onPressed: ()async{
-              final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-    email: "emailAddress@gmail.com",
-    password: "password",
-  );
-  lg.wtf(credential);
+           
               // await FirebaseFirestore.instance.collection('users').add({
               //   'name': 'John Doe',
               //   'age': 30,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:logger/logger.dart';
+import 'package:get/get.dart';
 
 Widget hSpaceTiny(BuildContext context) =>
     SizedBox(width: deviceWidth(context) * 0.001);
@@ -104,9 +105,42 @@ class ShimmerView extends StatelessWidget {
   }
 }
 
-// Screen Size helpers
 Logger lg = Logger();
 
+showErrorMessage({required String message, title = 'Error'}) {
+  Get.snackbar(
+    title,
+    message,
+    backgroundColor: Colors.red,
+    colorText: Colors.white,
+    shouldIconPulse: true,
+    snackPosition: SnackPosition.BOTTOM,
+    animationDuration: const Duration(microseconds: 25),
+    icon: const Icon(
+      Icons.cancel,
+      size: 18,
+      color: Colors.white,
+    ),
+  );
+}
+
+
+showInfoMessage({required message, title = 'Info', int duration = 25}) {
+  Get.snackbar(
+    title,
+    message,
+    backgroundColor: Colors.green,
+    colorText: Colors.white,
+    shouldIconPulse: true,
+    snackPosition: SnackPosition.TOP,
+    animationDuration:  Duration(microseconds: duration),
+    icon: const Icon(
+      Icons.cancel,
+      size: 18,
+      color: Colors.white,
+    ),
+  );
+}
 double screenWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
 double screenHeight(BuildContext context) => MediaQuery.of(context).size.height;
