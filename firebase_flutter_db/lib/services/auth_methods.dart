@@ -20,7 +20,6 @@ class AuthMethods {
       if (email!.isNotEmpty || name!.isNotEmpty || password!.isNotEmpty) {
         UserCredential user = await _auth.createUserWithEmailAndPassword(
             email: email, password: password!);
-        print(user.user!.uid);
 
         UserModel userModel = UserModel(
           email: email,

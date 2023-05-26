@@ -50,7 +50,7 @@ class Textfield extends StatelessWidget {
       keyboardType: inputType,
       controller: controller,
       obscureText: isPassword ?? false,
-      inputFormatters: [],
+      inputFormatters: const [],
       readOnly: readonly ?? false,
       onTap: onTap,
       onEditingComplete: onEditingComplete,

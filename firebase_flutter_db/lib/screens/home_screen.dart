@@ -1,6 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_flutter_db/services/auth_methods.dart';
+import 'package:firebase_flutter_db/widgets/resource/ui_helper.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return  Scaffold(
       appBar: AppBar(
         title: const Text("Home Screen"),
-        
+
       ),
       body: Column(
         children: [
@@ -33,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
     email: "emailAddress@gmail.com",
     password: "password",
   );
+  lg.wtf(credential);
               // await FirebaseFirestore.instance.collection('users').add({
               //   'name': 'John Doe',
               //   'age': 30,
