@@ -43,20 +43,23 @@ class AuthMethods {
     return result;
   }
 
-  Future<String> logInUser({
+  Future<UserCredential> logInUser({
     required String email,
     required String password,
   }) async {
-    String result = 'Some error occurred';
+    UserCredential? result;
     try {
       if (email.isNotEmpty || password.isNotEmpty) {
         await _auth.signInWithEmailAndPassword(
-            email: email, password: password);
-        result = 'success';
+            email: email, password: password).then((value) {
+              result = value;
+            });
+       
       }
     } catch (err) {
-      result = err.toString();
+      lg.wtf(err);
+      // showErrorMessage(message: err.toString());
     }
-    return result;
+    return result!;
   }
 }
